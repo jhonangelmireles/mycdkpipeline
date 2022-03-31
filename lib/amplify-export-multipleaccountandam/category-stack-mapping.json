@@ -1,0 +1,17 @@
+[
+  {
+    "category": "api",
+    "resourceName": "multipleaccountandam",
+    "service": "AppSync"
+  },
+  {
+    "category": "auth",
+    "resourceName": "multipleaccountandam1a8f576b",
+    "service": "Cognito"
+  },
+  {
+    "category": "function",
+    "resourceName": "multipleaccountandamc027b335",
+    "service": "Lambda"
+  }
+]

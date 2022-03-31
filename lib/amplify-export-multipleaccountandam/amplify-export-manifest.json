@@ -1,0 +1,98 @@
+{
+  "stackName": "amplify-multipleaccountandam-dev-122033",
+  "props": {
+    "templateFile": "root-stack-template.json",
+    "parameters": {
+      "AuthRoleName": "amplify-multipleaccountandam-dev-122033-authRole",
+      "UnauthRoleName": "amplify-multipleaccountandam-dev-122033-unauthRole",
+      "DeploymentBucketName": "amplify-multipleaccountandam-dev-122033-deployment"
+    },
+    "preserveLogicalIds": true,
+    "loadNestedStacks": {
+      "apimultipleaccountandam": {
+        "templateFile": "api/multipleaccountandam/cloudformation-template.json",
+        "parameters": {
+          "AppSyncApiName": "multipleaccountandam",
+          "DynamoDBBillingMode": "PAY_PER_REQUEST",
+          "DynamoDBEnableServerSideEncryption": false,
+          "S3DeploymentBucket": "amplify-multipleaccountandam-dev-122033-deployment",
+          "S3DeploymentRootKey": "amplify-appsync-files/07b649cc368db4ac7290ba127ee68eafe7adff4e",
+          "env": "dev"
+        },
+        "preserveLogicalIds": true,
+        "loadNestedStacks": {
+          "CustomResourcesjson": {
+            "templateFile": "api/multipleaccountandam/amplify-appsync-files/stacks/CustomResources.json",
+            "preserveLogicalIds": true,
+            "loadNestedStacks": {}
+          },
+          "Todo": {
+            "templateFile": "api/multipleaccountandam/amplify-appsync-files/stacks/Todo.json",
+            "preserveLogicalIds": true,
+            "loadNestedStacks": {}
+          }
+        }
+      },
+      "authmultipleaccountandam1a8f576b": {
+        "templateFile": "auth/multipleaccountandam1a8f576b/multipleaccountandam1a8f576b-cloudformation-template.json",
+        "parameters": {
+          "identityPoolName": "multipleaccountandam1a8f576b_identitypool_1a8f576b",
+          "allowUnauthenticatedIdentities": false,
+          "resourceNameTruncated": "multip1a8f576b",
+          "userPoolName": "multipleaccountandam1a8f576b_userpool_1a8f576b",
+          "autoVerifiedAttributes": [
+            "email"
+          ],
+          "mfaConfiguration": "OFF",
+          "mfaTypes": [
+            "SMS Text Message"
+          ],
+          "smsAuthenticationMessage": "Your authentication code is {####}",
+          "smsVerificationMessage": "Your verification code is {####}",
+          "emailVerificationSubject": "Your verification code",
+          "emailVerificationMessage": "Your verification code is {####}",
+          "defaultPasswordPolicy": false,
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": [],
+          "requiredAttributes": [
+            "email"
+          ],
+          "aliasAttributes": [],
+          "userpoolClientGenerateSecret": false,
+          "userpoolClientRefreshTokenValidity": 30,
+          "userpoolClientWriteAttributes": [
+            "email"
+          ],
+          "userpoolClientReadAttributes": [
+            "email"
+          ],
+          "userpoolClientLambdaRole": "multip1a8f576b_userpoolclient_lambda_role",
+          "userpoolClientSetAttributes": false,
+          "sharedId": "1a8f576b",
+          "resourceName": "multipleaccountandam1a8f576b",
+          "authSelections": "identityPoolAndUserPool",
+          "useDefault": "default",
+          "userPoolGroupList": [],
+          "serviceName": "Cognito",
+          "usernameCaseSensitive": false,
+          "useEnabledMfas": true,
+          "breakCircularDependency": true,
+          "dependsOn": [],
+          "env": "dev"
+        },
+        "preserveLogicalIds": true,
+        "loadNestedStacks": {}
+      },
+      "functionmultipleaccountandamc027b335": {
+        "templateFile": "function/multipleaccountandamc027b335/multipleaccountandamc027b335-cloudformation-template.json",
+        "parameters": {
+          "deploymentBucketName": "amplify-multipleaccountandam-dev-122033-deployment",
+          "s3Key": "amplify-builds/multipleaccountandamc027b335-2b6c447266366f6a7876-build.zip",
+          "env": "dev"
+        },
+        "preserveLogicalIds": true,
+        "loadNestedStacks": {}
+      }
+    }
+  }
+}
